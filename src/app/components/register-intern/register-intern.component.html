@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Wolcome, Intern!</h1>
+<form (ngSubmit)="onSubmit()" #internModelForm="ngForm">
+    <div class="mb-3">
+          <label>ID number</label>
+          <input type="text" [(ngModel)]="intern.ID" name="id" class="form-control" required #id_="ngModel">
+          
+        </div>
+        <div class="mb-3">
+          <label>Full Name</label>
+          <input type="text" [(ngModel)]="intern.fullName" name="fullName" class="form-control" required #fullName="ngModel">
+          
+        </div>
+        <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">passport</label>
+                </div>
+                <div class="col-auto">
+                  <input [(ngModel)]="intern.passport" name="passport" type="text" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+              <div class="input-group mb-3">
+                    <span class="input-group-text">+972</span>
+                    <input name="phone" [(ngModel)]="intern.phone" type="number" class="form-control" >
+                  </div>
+                </div>
+        <input [disabled]="!internModelForm.form.valid" type="submit"  [routerLink]='["/code"]' class="btn btn-primary" value="continue">   
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
