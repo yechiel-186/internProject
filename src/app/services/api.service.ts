@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InternModel } from '../interface/intern-model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,27 +12,32 @@ export class ApiService {
   password:string[]; 
   pass:boolean;
   data:Observable<object>;
+  token:string="";
+
   baseUrl:string="http://localhost:8080";
+  
+
   constructor(private httpClient:HttpClient) {
-    this.intern={ID:"", fullName:"", passport:"", phone:0};
-    this.interns=[{ID:"23344", fullName:"iuhujhuio", passport:"ikhbww", phone:23752623}]
+    this.intern={ID:null, fullName:"", passport:"", phone:null};
+    this.interns=[{ID:23344, fullName:"iuhujhuio", passport:"ikhbww", phone:23752623}]
     this.password=[];
     this.pass=false;
     
    }
 
-   create(intern:InternModel){
-    this.interns.forEach(element => {
-       if (element.ID!=intern.ID) {
-         this.interns.push(intern);
-        }
-       })
-  }
+ 
 
-  getCode():Observable<any>{
-    return this.httpClient.post(this.baseUrl+"/auth/checkCode",this.interns[0]);
+  httpPost<S,G>(data:S,path:string,headers?:object):Observable<G>{
+    return this.httpClient.post<G>(this.baseUrl+path,data,this.getOptions(headers));
    }
-  
-   
-  
+
+
+   getOptions(headers?: any) {
+    headers = headers? headers : {};
+    headers['content-type'] = 'application/json';
+    headers['x-access-token'] = this.token;
+    return {
+      headers: new HttpHeaders(headers)
+    }
+  }
 }

@@ -1,20 +1,24 @@
-<span>already have an account? </span> <a href="#" class="link-primary">Log In</a>
+<app-header></app-header>
+<br>
+<br>
+<br>
+
 <div class="container">
-<h3 class="text-primary">HI {{apiService.interns[0].fullName}}! pleas type the mobile verification code you received</h3>
+<h2 class="text-primary">HI {{userLogin.fullName}}! pleas type the mobile verification code you received</h2>
 </div>
 <div class="container-sm">
 <br>
 <br>
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="0" (keyup)="next($event)" [(ngModel)]="password[0]" type="number" min="0" max=9 style="width: 100px;">
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="1" (keyup)="next($event)" [(ngModel)]="password[1]" type="number" min="0" max=9 style="width: 100px;">
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="2" (keyup)="next($event)" [(ngModel)]="password[2]" type="number" min="0" max=9 style="width: 100px;">
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="3" (keyup)="end($event)" [(ngModel)]="password[3]" type="number" min="0" max=9 style="width: 100px;">
+<input autofocus class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="0" (keyup)="next($event)" [(ngModel)]="password[0]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="1" (keyup)="next($event)" [(ngModel)]="password[1]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="2" (keyup)="next($event)" [(ngModel)]="password[2]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="3" (keyup)="end($event)" [(ngModel)]="password[3]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
 <br>
 <br>
 <br>
 <br>
 
-<h1>i did not receive, <a href="#" class="link-dark">resend</a></h1> 
+<p>i did not receive, <a href="#" class="link-dark">resend</a></p> 
 </div>
 <div class="text-center">
     <br>

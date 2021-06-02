@@ -9,6 +9,8 @@ import { RegisterInternComponent } from './components/register-intern/register-i
 import { LoginComponent } from './components/login/login.component';
 import { CodeComponent } from './components/code/code.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { OpenCamaraComponent } from './components/open-camara/open-camara.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     BoardingPageComponent,
     RegisterInternComponent,
     LoginComponent,
-    CodeComponent
+    CodeComponent,
+    HeaderComponent,
+    OpenCamaraComponent
   ],
   imports: [
     BrowserModule,

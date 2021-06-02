@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { InternModel } from 'src/app/interface/intern-model';
 import { ApiService } from 'src/app/services/api.service';
+import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
   selector: 'app-code',
@@ -12,7 +14,9 @@ export class CodeComponent implements OnInit {
   bool:boolean;
   x:number=0;
   change:any;
-    constructor(public apiService:ApiService) {
+  userLogin:InternModel;
+    constructor(private loginService:LoginServiceService) {
+this.userLogin=loginService.intern;
      this.password=[];
      this.bool=false;
      this.change={};
@@ -22,13 +26,10 @@ export class CodeComponent implements OnInit {
     }
   
    submit(){
-      var str="";
-      this.password.forEach(element => {
-        str += ""+element;
-      });
+      
 
       
-      this.apiService.getCode().subscribe(()=>{console.log("is wok")});    
+        
     }
   
     next(event:Event){

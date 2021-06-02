@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
     <h1>Wolcome, Intern!</h1>
 <form (ngSubmit)="onSubmit()" #internModelForm="ngForm">
@@ -23,7 +24,7 @@
                     <input name="phone" [(ngModel)]="intern.phone" type="number" class="form-control" >
                   </div>
                 </div>
-        <input [disabled]="!internModelForm.form.valid" type="submit"  [routerLink]='["/code"]' class="btn btn-primary" value="continue">   
+        <input [disabled]="!internModelForm.form.valid" type="submit"  class="btn btn-primary" value="continue">   
       </form>
     </div>
     <br>

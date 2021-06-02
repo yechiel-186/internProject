@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InternModel } from 'src/app/interface/intern-model';
-import { ApiService } from 'src/app/services/api.service';
+
+import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
   selector: 'app-register-intern',
@@ -12,9 +13,9 @@ export class RegisterInternComponent implements OnInit {
 intern:InternModel={ID:null, fullName:null, passport:null, phone:null};
 bool:boolean=true;
 submitted = false;
-
-
-constructor(private apiService:ApiService) {
+url:string="/auth/checkUserNutExits";
+path:string="/auth/checkCode";
+constructor(private loginServiceService:LoginServiceService) {
     
  }
 
@@ -22,10 +23,6 @@ ngOnInit(): void {
 }
 
 onSubmit(){
-  this.submitted = true;
-  console.log("is true");
-  
+  this.loginServiceService.postRegister(this.intern);
 }
-
-
 }
