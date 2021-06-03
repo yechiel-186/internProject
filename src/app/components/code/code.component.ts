@@ -13,23 +13,22 @@ export class CodeComponent implements OnInit {
   password:number[];
   bool:boolean;
   x:number=0;
-  change:any;
   userLogin:InternModel;
+  
     constructor(private loginService:LoginServiceService) {
-this.userLogin=loginService.intern;
+     this.userLogin=loginService.intern;
      this.password=[];
      this.bool=false;
-     this.change={};
+    
      }
   
     ngOnInit(): void {
     }
   
    submit(){
-      
-
-      
-        
+     this.password.join("");
+     
+     this.loginService.sendCode(this.password);
     }
   
     next(event:Event){

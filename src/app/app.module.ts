@@ -11,6 +11,7 @@ import { CodeComponent } from './components/code/code.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { OpenCamaraComponent } from './components/open-camara/open-camara.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { OpenCamaraComponent } from './components/open-camara/open-camara.compon
     LoginComponent,
     CodeComponent,
     HeaderComponent,
-    OpenCamaraComponent
+    OpenCamaraComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
