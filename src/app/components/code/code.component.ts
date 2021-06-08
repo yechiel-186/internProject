@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { InternModel } from 'src/app/interface/intern-model';
-import { ApiService } from 'src/app/services/api.service';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
@@ -14,21 +13,23 @@ export class CodeComponent implements OnInit {
   bool:boolean;
   x:number=0;
   userLogin:InternModel;
-  
-    constructor(private loginService:LoginServiceService) {
+  y:number=0;
+
+    constructor(public loginService:LoginServiceService) {
      this.userLogin=loginService.intern;
      this.password=[];
-     this.bool=false;
+    
     
      }
   
     ngOnInit(): void {
+      
     }
   
    submit(){
-     this.password.join("");
+     let code=this.password.join("");
+     this.loginService.sendCode(code);
      
-     this.loginService.sendCode(this.password);
     }
   
     next(event:Event){
@@ -38,10 +39,10 @@ export class CodeComponent implements OnInit {
     }
   
     end(event:Event){
-      this.bool=true;
+      
     }
   
-    
+   
   
   
   }

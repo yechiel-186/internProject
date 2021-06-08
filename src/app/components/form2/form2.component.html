@@ -1,0 +1,30 @@
+<div class="m-4">
+    <h1>Please tell as about yourself, personally</h1>
+    
+<form class="form-select" (ngSubmit)="onSubmit()" #internModelForm2="ngForm">
+    <div class="col-4">
+          <label>Age</label>
+          <input type="number" [(ngModel)]="form.age" name="age" class="form-control" #age="ngModel">
+        </div>
+        <div class="col-4">
+          <label>Country</label>
+          <input type="text" [(ngModel)]="form.country" name="country" class="form-control" #country="ngModel">
+        </div>
+        <div class="col-4">
+          <label>city</label>
+          <input type="text" [(ngModel)]="form.city" name="city" class="form-control" #city="ngModel">
+        </div>
+        <div class="col-4">
+            <label>Graduation year</label>
+            <input type="text" [(ngModel)]="form.graducition" name="Graduation year" class="form-control" #Graduation="ngModel">
+          </div>
+          <div class="col-4">
+            <label>Academic institution</label>
+            <input type="text" [(ngModel)]="form.academic" name="Academic institution" class="form-control" #Academic="ngModel">
+          </div>
+        
+         <div class="col-6; m-5">     
+        <input [disabled]="!internModelForm2.form.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="next">
+      </div>     
+      </form>
+    </div>

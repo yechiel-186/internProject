@@ -2,3 +2,11 @@
     display: inline;
     
 }
+
+.inputFalse{
+background-color: red;
+}
+
+.inputTrue{
+background-color: greenyellow;
+}

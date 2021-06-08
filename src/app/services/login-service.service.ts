@@ -10,20 +10,22 @@ import { ApiService } from './api.service';
 export class LoginServiceService {
 intern:InternModel;
 userLogin:LoginModel={_id:"",code:""};
-code:number[];
-;
+y:number=0;
+token:string="";
+
   constructor(public apiService:ApiService, private router:Router) {
     this.intern={ID:null, fullName:"", passport:"", phone:null};
-
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
    }
 
+   
 
   postRegister(intern){
     this.intern=intern;
-    this.apiService.httpPost<InternModel,any>(intern,'/auth/checkUserNutExits').subscribe(data=>{ 
-      this.userLogin._id=data;
-      console.log(data);
-      console.log(intern);
+    this.apiService.httpPost<InternModel,any>(this.intern,'/auth/checkUserNutExits').subscribe(data=>{ 
+      this.userLogin._id=data._id;
+      console.log(this.userLogin);
       
       this.router.navigate(["/code"]);
     },error=>{
@@ -37,10 +39,28 @@ code:number[];
   sendCode(code){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/auth/checkCode').subscribe(data=>{
-      console.log(data);
-      
-    })
+    this.y=1;  
+
+    setTimeout(()=> this.router.navigate(["/image"]),1000*2)
+    },error=>{
+      this.y=2; 
+      setTimeout(()=> {this.router.navigate(["/code"]); this.y=0},1000*2)
+    }
+    )
+  }
+
+
+  sendImage(){
+    this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.intern},'/auth/ImageAuthentication').subscribe(data=>{
+      this.apiService.token=data.token;
+      this.router.navigate(["/pass"]);
+    },error=>{
+      alert(error)
+    }
+    )
   }
   
+  
+
   
 }

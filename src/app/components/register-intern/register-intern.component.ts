@@ -13,8 +13,7 @@ export class RegisterInternComponent implements OnInit {
 intern:InternModel={ID:null, fullName:null, passport:null, phone:null};
 bool:boolean=true;
 submitted = false;
-url:string="/auth/checkUserNutExits";
-path:string="/auth/checkCode";
+
 constructor(private loginServiceService:LoginServiceService) {
     
  }

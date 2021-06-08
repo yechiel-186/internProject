@@ -6,13 +6,13 @@
 <div class="container">
 <h2 class="text-primary">HI {{userLogin.fullName}}! pleas type the mobile verification code you received</h2>
 </div>
-<div class="container-sm">
+<div class="container">
 <br>
 <br>
-<input autofocus class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="0" (keyup)="next($event)" [(ngModel)]="password[0]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="1" (keyup)="next($event)" [(ngModel)]="password[1]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="2" (keyup)="next($event)" [(ngModel)]="password[2]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
-<input class="form-control" [style.background-color]="bool ? '#a6ff8d': '#fff'" maxlength="1" id="3" (keyup)="end($event)" [(ngModel)]="password[3]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input autofocus class="form-control text-center" [ngClass]="{'inputTrue': loginService.y==1, 'inputFalse': loginService.y==2}" maxlength="1" id="0" (keyup)="next($event)" [(ngModel)]="password[0]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input class="form-control text-center"  [ngClass]="{'inputTrue': loginService.y==1, 'inputFalse': loginService.y==2}" maxlength="1" id="1" (keyup)="next($event)" [(ngModel)]="password[1]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input class="form-control text-center"  [ngClass]="{'inputTrue': loginService.y==1, 'inputFalse': loginService.y==2}" maxlength="1" id="2" (keyup)="next($event)" [(ngModel)]="password[2]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
+<input class="form-control text-center"  [ngClass]="{'inputTrue': loginService.y==1, 'inputFalse': loginService.y==2}" maxlength="1" id="3" (keyup)="submit()" [(ngModel)]="password[3]" type="number" min="0" max=9 style="width: 50px; margin: 10px;">
 <br>
 <br>
 <br>
@@ -24,5 +24,6 @@
     <br>
     <br>
     <br>
-<button type="submit" (click)="submit()" class="btn btn-primary">continue</button>
+<button type="submit"  class="btn btn-primary">continue</button>
 </div>
+

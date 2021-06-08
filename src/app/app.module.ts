@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {MatIconModule} from '@angular/material/icon';
 import{FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { OpenCamaraComponent } from './components/open-camara/open-camara.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { ImageComponent } from './components/image/image.component';
+import { PassComponent } from './components/pass/pass.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Form2Component } from './components/form2/form2.component';
+
 
 
 @NgModule({
@@ -23,13 +29,18 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     CodeComponent,
     HeaderComponent,
     OpenCamaraComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ImageComponent,
+    PassComponent,
+    Form2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

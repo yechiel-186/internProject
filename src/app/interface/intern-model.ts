@@ -7,4 +7,13 @@ export interface InternModel {
 export interface LoginModel{
     _id?:string;
     code?:string;
+    phone?:number;
+}
+
+export interface formModel2{
+    age:Number;
+    country:string;
+    city:string;
+    graducition:string;
+    academic:string;
 }
