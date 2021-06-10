@@ -40,9 +40,12 @@ token:string="";
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/auth/checkCode').subscribe(data=>{
     this.y=1;  
-
     setTimeout(()=> this.router.navigate(["/image"]),1000*2)
     },error=>{
+      console.log(error);
+      console.log(this.apiService.token);
+      
+      
       this.y=2; 
       setTimeout(()=> {this.router.navigate(["/code"]); this.y=0},1000*2)
     }
@@ -52,7 +55,8 @@ token:string="";
 
   sendImage(){
     this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.intern},'/auth/ImageAuthentication').subscribe(data=>{
-      this.apiService.token=data.token;
+      console.log("kjn");
+      
       this.router.navigate(["/pass"]);
     },error=>{
       alert(error)

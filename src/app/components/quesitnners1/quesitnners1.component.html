@@ -1,0 +1,42 @@
+<div class="m-4">
+    <h1>Please tell as about yourself, personally</h1>
+    
+<form class="form-select" (ngSubmit)="onSubmit()" #quesitnners1="ngForm">
+    <div class="col-4">
+          <label>Age</label>
+          <input type="number" [(ngModel)]="quesitnners.age" name="age" class="form-control" #age="ngModel" placeholder="placeholder">
+        </div>
+        <div class="col-4">
+          <label>Country</label>
+          <select name="Country" [(ngModel)]="quesitnners.country" #country="ngModel" class="form-select" aria-label="Country">
+            <option value="1">Israel</option>
+            <option value="2">United States</option>
+            <option value="3">United Kingdom</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label>city</label>
+          <input type="text" [(ngModel)]="quesitnners.city" name="city" class="form-control" #city="ngModel">
+        </div>
+        <div class="col-4">
+            <label>Graduation year</label>
+            <input type="text" [(ngModel)]="quesitnners.graducition" name="Graduation year" class="form-control" #Graduation="ngModel">
+          </div>
+          <div class="col-4">
+            <label>Academic institution</label>
+            <input type="text" [(ngModel)]="quesitnners.academic" name="Academic institution" class="form-control" #Academic="ngModel">
+          </div>
+        
+         <div class="col-6; m-5">     
+        <input [disabled]="!quesitnners1.form.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="next">
+      </div>     
+      </form>
+    </div>
+
+
+    <select class="form-select" multiple aria-label="multiple select example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>

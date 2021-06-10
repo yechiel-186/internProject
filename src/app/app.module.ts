@@ -16,7 +16,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { ImageComponent } from './components/image/image.component';
 import { PassComponent } from './components/pass/pass.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Form2Component } from './components/form2/form2.component';
+import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.component';
+
 
 
 
@@ -32,7 +33,8 @@ import { Form2Component } from './components/form2/form2.component';
     CreateUserComponent,
     ImageComponent,
     PassComponent,
-    Form2Component
+    Quesitnners1Component
+   
   ],
   imports: [
     BrowserModule,

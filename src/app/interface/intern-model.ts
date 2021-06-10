@@ -1,19 +1,28 @@
-export interface InternModel {
+export interface InternModel extends TOKEN{
     ID:number;
     fullName:string;
     passport:string;
     phone:number;
 }
-export interface LoginModel{
+export interface LoginModel extends TOKEN{
     _id?:string;
     code?:string;
     phone?:number;
 }
 
-export interface formModel2{
-    age:Number;
-    country:string;
-    city:string;
-    graducition:string;
-    academic:string;
+export interface quesitnnersModel extends TOKEN{
+    age?:Number;
+    country?:string;
+    city?:string;
+    graducition?:number;
+    academic?:string;
+    medical?:string;
+    residency?:string;
+    department?:string;
+    yearResidency?:number;
+
+}
+
+export interface TOKEN{
+    token?:string
 }

@@ -21,5 +21,6 @@ user:InternModel;
     this.loginService.sendImage()
     
     
+    
   }
 }
