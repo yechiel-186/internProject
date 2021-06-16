@@ -8,15 +8,18 @@ import { LoginComponent } from './components/login/login.component';
 import { PassComponent } from './components/pass/pass.component';
 import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.component';
 import { RegisterInternComponent } from './components/register-intern/register-intern.component';
+import { TestFileComponent } from './components/test-file/test-file.component';
 
 const routes: Routes = [
   {path:"",component:BoardingPageComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterInternComponent},
   {path:"code",component:CodeComponent},
+  {path:"code/:ID",component:CodeComponent},
   {path:"image",component:ImageComponent},
   {path:"pass",component:PassComponent},
-  {path:"quesitnners1",component:Quesitnners1Component}
+  {path:"quesitnners1",component:Quesitnners1Component},
+  {path:"testFile",component:TestFileComponent}
 ];
 
 @NgModule({

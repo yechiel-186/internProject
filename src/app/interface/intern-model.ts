@@ -3,6 +3,7 @@ export interface InternModel extends TOKEN{
     fullName:string;
     passport:string;
     phone:number;
+    image?:string;
 }
 export interface LoginModel extends TOKEN{
     _id?:string;

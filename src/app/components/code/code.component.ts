@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InternModel } from 'src/app/interface/intern-model';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
@@ -14,12 +15,12 @@ export class CodeComponent implements OnInit {
   x:number=0;
   userLogin:InternModel;
   y:number=0;
-
-    constructor(public loginService:LoginServiceService) {
+userName;
+    constructor(public loginService:LoginServiceService,private activatedRouts:ActivatedRoute) {
      this.userLogin=loginService.intern;
      this.password=[];
-    
-    
+     
+     this.activatedRouts.paramMap.subscribe(param=>this.userName=param.get("ID"))
      }
   
     ngOnInit(): void {
@@ -28,7 +29,7 @@ export class CodeComponent implements OnInit {
   
    submit(){
      let code=this.password.join("");
-     this.loginService.sendCode(code);
+     this.loginService.sendCode(code,this.userName);
      
     }
   

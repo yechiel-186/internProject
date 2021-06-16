@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InternModel } from 'src/app/interface/intern-model';
+import { LoginServiceService } from 'src/app/services/login-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,16 @@ import { InternModel } from 'src/app/interface/intern-model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginIntern:InternModel={ID:null, fullName:null, passport:null, phone:null};
+  
+  constructor(private login:LoginServiceService) {
+    
+   }
 
-  constructor() { }
+   postUserLogin(ID:number){
+     console.log(ID);
+     
+     this.login.loginIntern(ID);
+   }
 
   ngOnInit(): void {
   }

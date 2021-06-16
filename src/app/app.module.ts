@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {MatIconModule} from '@angular/material/icon';
-import{FormsModule} from '@angular/forms';
+import { environment } from "../environments/environment";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { MatIconModule} from '@angular/material/icon';
+import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardingPageComponent } from './components/boarding-page/boarding-page.component';
@@ -17,6 +20,8 @@ import { ImageComponent } from './components/image/image.component';
 import { PassComponent } from './components/pass/pass.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.component';
+import { TestFileComponent } from './components/test-file/test-file.component';
+import { GetAllUsersComponent } from './components/get-all-users/get-all-users.component';
 
 
 
@@ -33,7 +38,9 @@ import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.co
     CreateUserComponent,
     ImageComponent,
     PassComponent,
-    Quesitnners1Component
+    Quesitnners1Component,
+    TestFileComponent,
+    GetAllUsersComponent
    
   ],
   imports: [
@@ -42,7 +49,9 @@ import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.co
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

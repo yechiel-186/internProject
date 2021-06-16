@@ -19,5 +19,7 @@ export class Quesitnners1Component implements OnInit {
   }
 
 
-onSubmit(){}
+onSubmit(){
+  this.quesitnnersService.updateQuesitnners()
+}
 }

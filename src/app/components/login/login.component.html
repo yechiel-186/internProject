@@ -1,16 +1,17 @@
-<br>
-<form class="col-form-label" >
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+<form class="col-8" #ngForm="ngForm">
+    <br>
     <label for="id"><h3>ID Number</h3></label>
     <br>
-<input class="input" id="id" style="width: 20%;" class="form-control" placeholder="input ID" [(ngModel)]="loginIntern.ID" >
+<input #ID type="number" required style="width: 30%;" class="form-control" placeholder="input ID" name="id" >
+<br>
+
 <br>
 <br>
-<br>
-<label for="phone"><h3>Phone Number</h3></label>
-<br>
-<input class="input" id="phone" type="number" style="width: 20%;" class="form-control" placeholder="input Phone" [(ngModel)] ="loginIntern.phone">
-<br>
-<button type="submit" class="btn btn-primary" >submit</button>
+<input [disabled]="!ngForm.valid" type="submit" (click)="postUserLogin(ID.value)" class="btn btn-primary" style="font-size: 30px" value="submit" >
 </form>
 
-
+</div>
+</div>

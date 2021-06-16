@@ -25,8 +25,20 @@ export class QuesitnnersService {
       this.quesitnners.yearResidency=data.yearResidency
       console.log(data);
           
+    },error=>{
+      alert(error.message)
     }
     )
    }
+
+updateQuesitnners(){
+
+  this.apiService.httpPut<any,any>(this.quesitnners,'/api/users/updateQuesitnners').subscribe(data=>{
+    console.log(data);
+    
+    
+  })
+}
+
 
 }

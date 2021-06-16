@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { InternModel, LoginModel } from '../interface/intern-model';
 import { ApiService } from './api.service';
 
@@ -13,10 +13,12 @@ userLogin:LoginModel={_id:"",code:""};
 y:number=0;
 token:string="";
 
+
   constructor(public apiService:ApiService, private router:Router) {
     this.intern={ID:null, fullName:"", passport:"", phone:null};
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
+   
    }
 
    
@@ -36,7 +38,8 @@ token:string="";
   
     
   }
-  sendCode(code){
+  sendCode(code,userName){
+    if(!userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/auth/checkCode').subscribe(data=>{
     this.y=1;  
@@ -44,12 +47,24 @@ token:string="";
     },error=>{
       console.log(error);
       console.log(this.apiService.token);
-      
-      
       this.y=2; 
       setTimeout(()=> {this.router.navigate(["/code"]); this.y=0},1000*2)
     }
     )
+  }
+  if(userName){
+    this.userLogin.code=code;
+    this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
+    this.y=1;
+    setTimeout(()=> this.router.navigate(["/testFile"]),1000*2)  
+    },error=>{
+      console.log(error);
+      console.log(this.apiService.token);
+      this.y=2; 
+      setTimeout(()=> {this.router.navigate(["login"]); this.y=0},1000*2)
+    }
+    )
+  }
   }
 
 
@@ -64,7 +79,22 @@ token:string="";
     )
   }
   
+
+  loginIntern(ID){
+    this.apiService.httpGet<LoginModel>(`/login/${ID}`).subscribe(data=>{ 
+      console.log(data);
+      this.userLogin._id=data._id;
+      this.router.navigate([`code/${ID}`]);
+    },error=>{
+      console.log(error.error);
+      alert(error.error.message);
+    }
+    )
   
+  }
+
+  
+ 
 
   
 }
