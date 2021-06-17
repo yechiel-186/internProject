@@ -62,7 +62,7 @@ token:string="";
       console.log(error);
       console.log(this.apiService.token);
       this.y=2; 
-      setTimeout(()=> {this.router.navigate(["login"]); this.y=0},1000*2)
+      setTimeout(()=> {this.router.navigate(["/login"]); this.y=0},1000*2)
     }
     )
   }
@@ -71,11 +71,13 @@ token:string="";
 
   sendImage(){
     this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.intern},'/auth/ImageAuthentication').subscribe(data=>{
-      console.log("kjn");
+      console.log(data);
       
       this.router.navigate(["/pass"]);
     },error=>{
       alert(error)
+      console.log(error);
+      
     }
     )
   }
