@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boarding-page.component.css']
 })
 export class BoardingPageComponent implements OnInit {
-str:string="Supervisors";
+  internLink:boolean=true;
+  supervisorsLink:boolean=false
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  change1(){
+    this.internLink=true;
+    this.supervisorsLink=false;
+  }
+  change2(){
+    this.internLink=false;
+    this.supervisorsLink=true;
+  }
 }

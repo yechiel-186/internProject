@@ -14,14 +14,16 @@ intern:InternModel={ID:null, fullName:null, passport:null, phone:null};
 bool:boolean=true;
 submitted = false;
 
-constructor(private loginServiceService:LoginServiceService) {
-    
+constructor(private loginService:LoginServiceService) {
+    loginService.intern=this.intern;
  }
 
 ngOnInit(): void {
 }
 
 onSubmit(){
-  this.loginServiceService.postRegister(this.intern);
+  this.loginService.postRegister();
+
+
 }
 }

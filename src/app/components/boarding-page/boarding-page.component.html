@@ -4,14 +4,14 @@
   <div class="card-body">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" >Intern</a>
+        <button class="nav-link" (click)="change1()">Intern</button>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Supervisors</a>
+        <button class="nav-link" (click)="change2()" >Supervisors</button>
       </li>
     </ul>
   </div>
-  <div class="card-body">
+  <div *ngIf="internLink" class="card-body">
     <h5 class="card-title" style="font-size: xx-large;">WOLCOME INTERN!</h5>
     <p class="card-text" style="font-size:larger;">You have reached a system designed for medical interns, to log in you must register or log in with a password that will be sent to your cell phone.</p>
     <br>
@@ -20,14 +20,19 @@
     <br>
     <button type="button" class="btn btn-primary" routerLink="register">REGISTER NOW</button>
   </div>
+  <div *ngIf="supervisorsLink" class="card-body">
+    <h5 class="card-title" style="font-size: xx-large;">WOLCOME SUPERVISORS!</h5>
+    <p class="card-text" style="font-size:larger;">If you are already registered on the site, go to "log in"!</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" routerLink="/">REGISTER NOW</button>
+  </div>
 </div>
 
 <br>
 
 <img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB653NFTKOcjlktm0-2qVAAEObGAXH0YbubY20dNwCV2Ve_JCuXMJAYNAgR5wuWDdjXYw&usqp=CAU" >
 </div>
-
-
-
-
 

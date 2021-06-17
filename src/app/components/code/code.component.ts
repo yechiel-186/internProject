@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { InternModel } from 'src/app/interface/intern-model';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
@@ -13,11 +13,11 @@ export class CodeComponent implements OnInit {
   password:number[];
   bool:boolean;
   x:number=0;
-  userLogin:InternModel;
+  
   y:number=0;
-userName;
-    constructor(public loginService:LoginServiceService,private activatedRouts:ActivatedRoute) {
-     this.userLogin=loginService.intern;
+  userName;
+    constructor(public loginService:LoginServiceService,private activatedRouts:ActivatedRoute, private router:Router) {
+     
      this.password=[];
      
      this.activatedRouts.paramMap.subscribe(param=>this.userName=param.get("ID"))
@@ -39,7 +39,11 @@ userName;
         
     }
   
-    end(event:Event){
+    
+
+    egain(){
+      this.loginService.postRegister();
+      this.router.navigate(["/code"]);
       
     }
   
