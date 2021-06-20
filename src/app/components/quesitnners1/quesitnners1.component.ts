@@ -9,6 +9,9 @@ import { QuesitnnersService } from 'src/app/services/quesitnners.service';
 })
 export class Quesitnners1Component implements OnInit {
   quesitnners:quesitnnersModel={};
+  countrys:string[]=[""];
+  citys:string[]=[""];
+  
   constructor(private quesitnnersService:QuesitnnersService) {
     
     this.quesitnners=this.quesitnnersService.quesitnners;
@@ -16,10 +19,35 @@ export class Quesitnners1Component implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getCountry()
   }
 
+  ​
 
 onSubmit(){
-  this.quesitnnersService.updateQuesitnners()
+
+  this.quesitnnersService.quesitnners.academic=this.quesitnners.academic;
+  this.quesitnnersService.quesitnners.age=this.quesitnners.age;
+  this.quesitnnersService.quesitnners.city=this.quesitnners.city;
+  this.quesitnnersService.quesitnners.country=this.quesitnners.country;
+  this.quesitnnersService.quesitnners.graducition=this.quesitnners.graducition;
+
+}
+
+
+
+getCountry(){
+this.quesitnnersService.httpCountry("https://ajayakv-rest-countries-v1.p.rapidapi.com/rest/v1/all").subscribe(
+  data=>{
+    for (let index = 0; index < data.length; index++) {
+      this.countrys[index] = data[index].name;
+      this.
+    }
+
+      
+   
+
+ }
+)
 }
 }

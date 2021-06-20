@@ -1,4 +1,5 @@
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { quesitnnersModel } from '../interface/intern-model';
 import { ApiService } from './api.service';
@@ -8,12 +9,13 @@ import { ApiService } from './api.service';
 })
 export class QuesitnnersService {
   quesitnners:quesitnnersModel={};
-  constructor(private apiService:ApiService) {
+  
+  constructor(private apiService:ApiService, private http:HttpClient) {
   
    }
 
    getQuesitnners(){
-    this.apiService.httpGet<quesitnnersModel>('/api/users/getQuesitnners').subscribe(data=>{
+    this.apiService.httpGet<any>('/api/users/getQuesitnners').subscribe(data=>{
       this.quesitnners.age=data.age,
       this.quesitnners.country=data.country, 
       this.quesitnners.city=data.city,
@@ -30,6 +32,11 @@ export class QuesitnnersService {
     }
     )
    }
+   httpCountry(url:string,headers?:object):Observable<any>{
+     return this.http.get(url,this.getOptions(headers));
+   }
+
+   
 
 updateQuesitnners(){
 
@@ -39,6 +46,13 @@ updateQuesitnners(){
     
   })
 }
+getOptions(headers?: any) {
+  headers = headers? headers : {};
+  headers['x-rapidapi-key'] = 'e5fea4ea23mshf1c09cb5d12f974p11d6b0jsn0516510dea44';
+  headers['x-rapidapi-host'] = "ajayakv-rest-countries-v1.p.rapidapi.com";
+  return {
+    headers: new HttpHeaders(headers)
+  }
 
-
+}
 }

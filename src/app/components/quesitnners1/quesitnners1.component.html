@@ -1,24 +1,32 @@
 <app-header></app-header>
 <div class="m-4">
     <h1>Please tell as about yourself, personally</h1>
-    
-<form class="form-select" (ngSubmit)="onSubmit()" #quesitnners1="ngForm">
+<br>    
+<form class="form-control" (ngSubmit)="onSubmit()" #quesitnners1="ngForm">
+  <div class="row">
     <div class="col-4">
           <label>Age</label>
-          <input type="number" [(ngModel)]="quesitnners.age" name="age" class="form-control" #age="ngModel" placeholder="placeholder">
+          <input type="number" [(ngModel)]="quesitnners.age" name="age" class="form-control" #age="ngModel" placeholder="Age">
         </div>
+        
         <div class="col-4">
-          <label>Country</label>
-          <select name="Country" [(ngModel)]="quesitnners.country" #country="ngModel" class="form-select" aria-label="Country">
-            <option value="1">Israel</option>
-            <option value="2">United States</option>
-            <option value="3">United Kingdom</option>
+          <label for="country">Country</label>
+          <select name="Country" [(ngModel)]="quesitnners.country" #country="ngModel" class="form-select" aria-label="Country" >
+          <option selected>Country</option>
+            <option  *ngFor="let i of countrys">{{i}}</option>
           </select>
         </div>
         <div class="col-4">
           <label>city</label>
-          <input type="text" [(ngModel)]="quesitnners.city" name="city" class="form-control" #city="ngModel">
+          <select type="text" [(ngModel)]="quesitnners.city" name="city" class="form-control" #city="ngModel" aria-label="city">
+            <option value="1">Jerusalem</option>
+            <option value="2">New York</option>
+            <option value="3">London</option>
+            </select>
         </div>
+      </div>
+      <br>
+      <div class="row">
         <div class="col-4">
             <label>Graduation year</label>
             <input type="text" [(ngModel)]="quesitnners.graducition" name="Graduation year" class="form-control" #Graduation="ngModel">
@@ -27,7 +35,7 @@
             <label>Academic institution</label>
             <input type="text" [(ngModel)]="quesitnners.academic" name="Academic institution" class="form-control" #Academic="ngModel">
           </div>
-        
+        </div>
          <div class="col-6; m-5">     
         <input [disabled]="!quesitnners1.form.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="next">
       </div>     

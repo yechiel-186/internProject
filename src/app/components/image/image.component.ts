@@ -9,6 +9,7 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
+  
 t:string;
   constructor(public loginService:LoginServiceService, private storage:AngularFireStorage) {
     

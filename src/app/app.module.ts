@@ -15,13 +15,14 @@ import { CodeComponent } from './components/code/code.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { OpenCamaraComponent } from './components/open-camara/open-camara.component';
-import { CreateUserComponent } from './components/create-user/create-user.component';
+
 import { ImageComponent } from './components/image/image.component';
 import { PassComponent } from './components/pass/pass.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.component';
 import { TestFileComponent } from './components/test-file/test-file.component';
 import { GetAllUsersComponent } from './components/get-all-users/get-all-users.component';
+import { Quesitnners2Component } from './components/quesitnners2/quesitnners2.component';
 
 
 
@@ -35,12 +36,12 @@ import { GetAllUsersComponent } from './components/get-all-users/get-all-users.c
     CodeComponent,
     HeaderComponent,
     OpenCamaraComponent,
-    CreateUserComponent,
     ImageComponent,
     PassComponent,
     Quesitnners1Component,
     TestFileComponent,
-    GetAllUsersComponent
+    GetAllUsersComponent,
+    Quesitnners2Component
    
   ],
   imports: [
