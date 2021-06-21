@@ -15,7 +15,7 @@ export interface quesitnnersModel extends TOKEN{
     age?:Number;
     country?:string;
     city?:string;
-    graducition?:number;
+    graduation?:number;
     academic?:string;
     medical?:string;
     residency?:string;

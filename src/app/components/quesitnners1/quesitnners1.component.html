@@ -2,13 +2,12 @@
 <div class="m-4">
     <h1>Please tell as about yourself, personally</h1>
 <br>    
-<form class="form-control" (ngSubmit)="onSubmit()" #quesitnners1="ngForm">
+<form class="form-control" (ngSubmit)="next()" #quesitnners1="ngForm">
   <div class="row">
     <div class="col-4">
           <label>Age</label>
           <input type="number" [(ngModel)]="quesitnners.age" name="age" class="form-control" #age="ngModel" placeholder="Age">
         </div>
-        
         <div class="col-4">
           <label for="country">Country</label>
           <select name="Country" [(ngModel)]="quesitnners.country" #country="ngModel" class="form-select" aria-label="Country" >
@@ -29,15 +28,15 @@
       <div class="row">
         <div class="col-4">
             <label>Graduation year</label>
-            <input type="text" [(ngModel)]="quesitnners.graducition" name="Graduation year" class="form-control" #Graduation="ngModel">
+            <input type="number" [(ngModel)]="quesitnners.graduation" name="Graduation year" class="form-control" #Graduation="ngModel">
           </div>
           <div class="col-4">
-            <label>Academic institution</label>
-            <input type="text" [(ngModel)]="quesitnners.academic" name="Academic institution" class="form-control" #Academic="ngModel">
+            <label>academic institusion</label>
+            <input type="text" [(ngModel)]="quesitnners.academic" name="Graduation year" class="form-control" #Academic="ngModel">
           </div>
         </div>
          <div class="col-6; m-5">     
-        <input [disabled]="!quesitnners1.form.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="next">
+        <input [disabled]="!quesitnners1.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="next">
       </div>     
       </form>
     </div>

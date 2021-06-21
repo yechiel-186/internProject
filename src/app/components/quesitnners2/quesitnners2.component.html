@@ -1,1 +1,38 @@
-<p>quesitnners2 works!</p>
+<app-header></app-header>
+<div class="m-4">
+    <h1>Please tell as about yourself, personally</h1>
+<br>    
+<form class="form-control" (ngSubmit)="onSubmit()" #quesitnners1="ngForm">
+  <div class="row">
+    <div class="col-4">
+          <label>Medical institution</label>
+          <input type="text" [(ngModel)]="quesitnners.medical" name="age" class="form-control" #age="ngModel" placeholder="Age">
+        </div>
+        
+        <div class="col-4">
+          <label for="residency">Residency</label>
+          <select name="residency" [(ngModel)]="quesitnners.residency" #residency="ngModel" class="form-select" aria-label="Residency" >
+          <option selected>Residency</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label>Department</label>
+          <select type="text" [(ngModel)]="quesitnners.department" name="city" class="form-control" #city="ngModel" aria-label="city">
+           
+            </select>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-4">
+            <label>yearResidency</label>
+            <input type="text" [(ngModel)]="quesitnners.yearResidency" name="yearResidency" class="form-control" #YearResidency="ngModel">
+          </div>
+        </div>
+         <div class="col-6; m-5">     
+        <input [disabled]="!quesitnners1.form.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="next">
+      </div>     
+      </form>
+    </div>
+
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { quesitnnersModel } from 'src/app/interface/intern-model';
 import { QuesitnnersService } from 'src/app/services/quesitnners.service';
 
@@ -12,7 +13,7 @@ export class Quesitnners1Component implements OnInit {
   countrys:string[]=[""];
   citys:string[]=[""];
   
-  constructor(private quesitnnersService:QuesitnnersService) {
+  constructor(private quesitnnersService:QuesitnnersService, private router:Router) {
     
     this.quesitnners=this.quesitnnersService.quesitnners;
     
@@ -24,14 +25,14 @@ export class Quesitnners1Component implements OnInit {
 
   ​
 
-onSubmit(){
+next(){
 
   this.quesitnnersService.quesitnners.academic=this.quesitnners.academic;
   this.quesitnnersService.quesitnners.age=this.quesitnners.age;
   this.quesitnnersService.quesitnners.city=this.quesitnners.city;
   this.quesitnnersService.quesitnners.country=this.quesitnners.country;
-  this.quesitnnersService.quesitnners.graducition=this.quesitnners.graducition;
-
+  this.quesitnnersService.quesitnners.graduation=this.quesitnners.graduation;
+  this.router.navigate(['quesitnners2'])
 }
 
 
@@ -41,7 +42,7 @@ this.quesitnnersService.httpCountry("https://ajayakv-rest-countries-v1.p.rapidap
   data=>{
     for (let index = 0; index < data.length; index++) {
       this.countrys[index] = data[index].name;
-      this.
+  
     }
 
       

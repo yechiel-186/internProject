@@ -7,6 +7,7 @@ import { ImageComponent } from './components/image/image.component';
 import { LoginComponent } from './components/login/login.component';
 import { PassComponent } from './components/pass/pass.component';
 import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.component';
+import { Quesitnners2Component } from './components/quesitnners2/quesitnners2.component';
 import { RegisterInternComponent } from './components/register-intern/register-intern.component';
 import { TestFileComponent } from './components/test-file/test-file.component';
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:"image",component:ImageComponent},
   {path:"pass",component:PassComponent},
   {path:"quesitnners1",component:Quesitnners1Component},
-  {path:"testFile",component:TestFileComponent}
+  {path:"testFile",component:TestFileComponent},
+  {path:"quesitnners2",component:Quesitnners2Component}
 ];
 
 @NgModule({
