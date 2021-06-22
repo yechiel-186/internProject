@@ -16,12 +16,9 @@ users:InternModel[]=[];
   }
 
   getAllUsers(){
-    console.log("hjbv");
-    
   this.api.httpGet<any>('/users/all').subscribe(data=>{
     console.log(data);
     this.users=data})
-    
     
   }
 

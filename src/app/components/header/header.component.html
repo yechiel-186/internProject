@@ -1,1 +1,12 @@
-<span>already have an account? </span> <a routerLink="/login" class="link-primary">Log In</a>
+
+<div class="row">
+    <div *ngIf="!service.loginNow" class="col-11">
+        <span>already have an account? </span> <a routerLink="/login" class="link-primary">Log In</a>
+    </div>
+    <div *ngIf="service.loginNow" class="col-11">
+        <h3>{{service.intern.fullName}}</h3>
+    </div>
+    <div class="col-1">
+        <img style="width: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrshEd0XAu5Ny27TZCnrfLkXdBY11RlypsA&usqp=CAU">
+    </div>
+</div>

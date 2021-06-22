@@ -26,7 +26,9 @@ export class QuesitnnersService {
       this.quesitnners.residency=data.residency,
       this.quesitnners.department=data.department,
       this.quesitnners.yearResidency=data.yearResidency
-      console.log(data);
+      console.log("this is data",data);
+      console.log("quygu", this.quesitnners);
+      
     },error=>{
       alert(error.message)
     }

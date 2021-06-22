@@ -23,6 +23,7 @@ import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.co
 import { TestFileComponent } from './components/test-file/test-file.component';
 import { GetAllUsersComponent } from './components/get-all-users/get-all-users.component';
 import { Quesitnners2Component } from './components/quesitnners2/quesitnners2.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 
@@ -41,7 +42,8 @@ import { Quesitnners2Component } from './components/quesitnners2/quesitnners2.co
     Quesitnners1Component,
     TestFileComponent,
     GetAllUsersComponent,
-    Quesitnners2Component
+    Quesitnners2Component,
+    AdminComponent
    
   ],
   imports: [

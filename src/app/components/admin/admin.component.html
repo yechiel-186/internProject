@@ -1,0 +1,60 @@
+<div class="container m-5">
+    <h1>Wolcome, Admin!</h1>
+    <h1>new Supervisor</h1>   
+<form class="row"(ngSubmit)="onSubmit()" #supervisorsForm="ngForm">
+    <div class="col-4">
+          <label>ID number</label>
+          <input type="text" [(ngModel)]="supervisors.ID" name="id" class="form-control" required #id_="ngModel">
+        </div>
+        <div class="col-4">
+          <label>Full Name</label>
+          <input type="text" [(ngModel)]="supervisors.fullName" name="fullName" class="form-control" required #fullName="ngModel">
+        </div>
+        <div class="col-4">
+          <label>passport</label>
+          <input type="text" [(ngModel)]="supervisors.passport" name="passport" class="form-control" #passport="ngModel">
+        </div>
+        <div class="col-4">
+                <label>academic</label>
+                <input type="text" [(ngModel)]="supervisors.academic" name="passport" class="form-control">
+        </div>
+              <div class="input-group mt-3">
+                    <span class="input-group-text">+972</span>
+                    <input name="phone" [(ngModel)]="supervisors.phone" type="number" class="form-control" >
+                  </div>
+         
+         <div class="col-6; m-5">     
+        <input [disabled]="!supervisorsForm.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="continue">
+      </div>     
+      </form>
+
+    <br>
+    <br>
+    <br>
+   </div>
+
+
+   <div class="container m-5">
+    <h1>new Academic</h1>   
+<form class="row"(ngSubmit)="submitAcademic()" #academicForm="ngForm">
+    <div class="col-4">
+          <label>ID number</label>
+          <input type="text" [(ngModel)]="academic.ID" name="id" class="form-control" required >
+        </div>
+        <div class="col-4">
+          <label>Full Name</label>
+          <input type="text" [(ngModel)]="academic.fullName" name="fullName" class="form-control" required >
+        </div>
+        
+         
+         <div class="col-6; m-5">     
+        <input [disabled]="!academicForm.valid" type="submit"  class="btn btn-primary" style="width: 150px; height: 60px; margin-left: 39%;" value="continue">
+      </div>     
+      </form>
+
+    <br>
+    <br>
+    <br>
+   </div>
+
+   

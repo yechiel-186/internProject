@@ -12,7 +12,7 @@ intern:InternModel;
 userLogin:LoginModel={_id:"",code:""};
 y:number=0;
 token:string="";
-
+loginNow:boolean=false;
 
   constructor(public apiService:ApiService, private router:Router) {
     this.intern={ID:null, fullName:"", passport:"", phone:null};
@@ -72,7 +72,7 @@ token:string="";
   sendImage(){
     this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.intern},'/auth/ImageAuthentication').subscribe(data=>{
       console.log(data);
-      
+      this.loginNow=true;
       this.router.navigate(["/pass"]);
     },error=>{
       alert(error)

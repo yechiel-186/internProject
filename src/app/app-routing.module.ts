@@ -1,6 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
 import { BoardingPageComponent } from './components/boarding-page/boarding-page.component';
 import { CodeComponent } from './components/code/code.component';
 import { ImageComponent } from './components/image/image.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:"pass",component:PassComponent},
   {path:"quesitnners1",component:Quesitnners1Component},
   {path:"testFile",component:TestFileComponent},
-  {path:"quesitnners2",component:Quesitnners2Component}
+  {path:"quesitnners2",component:Quesitnners2Component},
+  {path:"admin",component:AdminComponent}
 ];
 
 @NgModule({
