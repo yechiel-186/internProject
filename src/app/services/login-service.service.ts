@@ -24,8 +24,6 @@ loginNow:boolean=false;
    
 
   postRegister(){
-    console.log(66);
-    
     this.apiService.httpPost<InternModel,any>(this.intern,'/auth/checkUserNutExits').subscribe(data=>{ 
       this.userLogin._id=data._id;
       console.log(this.userLogin);

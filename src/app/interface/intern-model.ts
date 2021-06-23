@@ -29,3 +29,9 @@ export interface quesitnnersModel extends TOKEN{
 export interface TOKEN{
     token?:string
 }
+
+export interface adminModel extends TOKEN{
+    ID:string;
+    fullName:string;
+    password:string
+}

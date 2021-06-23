@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
@@ -8,9 +9,11 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 })
 export class HeaderComponent implements OnInit {
   
-  constructor(public service:LoginServiceService) { }
+  constructor(public service:LoginServiceService, private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  homepage(){
+this.router.navigate([""]);
+  }
 }
