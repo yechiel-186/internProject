@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:"quesitnners1",component:Quesitnners1Component},
   {path:"testFile",component:TestFileComponent},
   {path:"quesitnners2",component:Quesitnners2Component},
-  {path:"admin/create/:name/:ID/:password",component:AdminComponent}
+  {path:"admin/:name/:ID/:password",component:AdminComponent}
 ];
 
 @NgModule({

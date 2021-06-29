@@ -27,7 +27,6 @@ loginNow:boolean=false;
     this.apiService.httpPost<InternModel,any>(this.intern,'/auth/checkUserNutExits').subscribe(data=>{ 
       this.userLogin._id=data._id;
       console.log(this.userLogin);
-      
       this.router.navigate(["/code"]);
     },error=>{
       console.log(error.error);
@@ -41,7 +40,7 @@ loginNow:boolean=false;
     if(!userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/auth/checkCode').subscribe(data=>{
-    this.y=1;  
+    this.y=1;
     setTimeout(()=> this.router.navigate(["/image"]),1000*2)
     },error=>{
       console.log(error);
@@ -54,6 +53,7 @@ loginNow:boolean=false;
   if(userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
+      console.log(data);
     this.y=1;
     setTimeout(()=> this.router.navigate(["/testFile"]),1000*2)  
     },error=>{

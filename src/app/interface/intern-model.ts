@@ -35,3 +35,8 @@ export interface adminModel extends TOKEN{
     fullName:string;
     password:string
 }
+
+export interface academicModel{
+    ID:number;
+    fullName:string;
+}

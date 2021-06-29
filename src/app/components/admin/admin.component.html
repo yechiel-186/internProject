@@ -15,10 +15,10 @@
           <input type="text" [(ngModel)]="supervisor.passport" name="passport" class="form-control" #passport="ngModel">
         </div>
         <div class="col-4">
-                <label>academic</label>
-                <input type="text" [(ngModel)]="supervisor.academic" name="passport" class="form-control">
-                <select>
+                <label>academics</label>
+                <select type="text"  name="passport" class="form-control">
                   <option></option>
+                  <option *ngFor="let i of academicsList">{{i}}</option>
                 </select>
         </div>
               <div class="input-group mt-3">
@@ -39,7 +39,7 @@
 
    <div class="container m-5">
     <h1>new Academic</h1>   
-<form class="row"(ngSubmit)="submitAcademic()" #academicForm="ngForm">
+<form class="row"(ngSubmit)="createAcademic()" #academicForm="ngForm">
     <div class="col-4">
           <label>ID number</label>
           <input type="text" [(ngModel)]="academic.ID" name="id" class="form-control" required >
