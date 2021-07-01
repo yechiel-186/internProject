@@ -4,9 +4,21 @@
         <span>already have an account? </span> <a routerLink="/login" class="link-primary">Log In</a>
     </div>
     <div *ngIf="service.loginNow" class="col-11">
-        <h3>{{service.intern.fullName}}</h3>
+        <img (click)="bool=!bool" style="width: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrshEd0XAu5Ny27TZCnrfLkXdBY11RlypsA&usqp=CAU" class="rounded-circle" alt="...">
+        <div *ngIf="!bool">
+            <h4>{{service.user.fullName}}</h4>
+            <h4>{{service.user.role}}</h4>
+            <h4>{{service.user.academic}}</h4>
+        <button class="btn btn-warning" *ngIf="service.user.roleNumber==100" routerLink="/quesitnners1">update quesitnners</button>
+
+        <button class="btn btn-warning"  (click)=logout()>log out</button>
+    </div>
     </div>
     <div class="col-1">
         <img (click)="homepage()" style="width: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgrshEd0XAu5Ny27TZCnrfLkXdBY11RlypsA&usqp=CAU">
     </div>
 </div>
+
+
+
+

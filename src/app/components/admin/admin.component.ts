@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
-import { adminModel, InternModel, academicModel } from 'src/app/interface/intern-model';
+import { adminModel, userModel, academicModel } from 'src/app/interface/intern-model';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AdminComponent implements OnInit {
   admin:adminModel={ID:null,fullName:null,password:null};
-supervisor:InternModel={ID:null,fullName:null,passport:null,phone:null,academic:null}
+supervisor:userModel={ID:null,fullName:null,passport:null,phone:null,academic:null}
 academic:academicModel={ID:null,fullName:null}
 academicsList:string[]=[]
   constructor(private api:ApiService, private router:ActivatedRoute) {
@@ -45,12 +45,15 @@ academicsList:string[]=[]
 
 createSupervisor(){
   this.api.httpPost(this.supervisor,"/admin/api/verify/createSupervisor").subscribe(data=>{
+    console.log(this.supervisor);
+    
     console.log(data)}
     )
 }
 
 createAcademic(){
   this.api.httpPost(this.academic,"/admin/api/verify/createAcademic").subscribe(data=>{
+    
     console.log(data)}
     )
 }

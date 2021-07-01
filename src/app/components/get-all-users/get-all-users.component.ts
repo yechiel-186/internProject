@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { InternModel } from 'src/app/interface/intern-model';
+import { userModel } from 'src/app/interface/intern-model';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./get-all-users.component.css']
 })
 export class GetAllUsersComponent implements OnInit {
-users:InternModel[]=[];
+users:userModel[]=[];
   constructor(private api:ApiService) { }
 
   ngOnInit(): void {

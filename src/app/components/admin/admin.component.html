@@ -16,9 +16,9 @@
         </div>
         <div class="col-4">
                 <label>academics</label>
-                <select type="text"  name="passport" class="form-control">
+                <select [(ngModel)]="supervisor.academic" type="text"  name="academic" class="form-control">
                   <option></option>
-                  <option *ngFor="let i of academicsList">{{i}}</option>
+                  <option *ngFor="let i of academicsList"  >{{i}}</option>
                 </select>
         </div>
               <div class="input-group mt-3">

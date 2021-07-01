@@ -1,30 +1,34 @@
 
 import { Injectable } from '@angular/core';
 import {  Router } from '@angular/router';
-import { InternModel, LoginModel } from '../interface/intern-model';
+
+
+import { userModel, LoginModel } from '../interface/intern-model';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
-intern:InternModel;
+user:userModel={ID:null, fullName:null, passport:null, phone:null,role:null,roleNumber:null};
 userLogin:LoginModel={_id:"",code:""};
+interns:userModel[];
+intern:userModel;
 y:number=0;
 token:string="";
 loginNow:boolean=false;
 
   constructor(public apiService:ApiService, private router:Router) {
-    this.intern={ID:null, fullName:"", passport:"", phone:null};
+    
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
-   
+    
    }
 
    
 
   postRegister(){
-    this.apiService.httpPost<InternModel,any>(this.intern,'/auth/checkUserNutExits').subscribe(data=>{ 
+    this.apiService.httpPost<userModel,any>(this.user,'/auth/checkUserNutExits').subscribe(data=>{ 
       this.userLogin._id=data._id;
       console.log(this.userLogin);
       this.router.navigate(["/code"]);
@@ -54,8 +58,25 @@ loginNow:boolean=false;
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
       console.log(data);
-    this.y=1;
-    setTimeout(()=> this.router.navigate(["/testFile"]),1000*2)  
+      this.loginNow=true;
+      this.user.ID=data.user.ID;
+      this.user.academic=data.user.academic;
+      this.user.fullName=data.user.fullName;
+      this.user.image=data.user.image;
+      this.user.roleNumber=data.user.roleNumber;
+      this.user.role=data.user.role;
+      this.user.passport=data.user.passport;
+      this.user.phone=data.user.phone;
+      
+      console.log(this.user,'user');
+      
+      this.y=1;
+      if(this.user.roleNumber==100){
+    setTimeout(()=> this.router.navigate(["/testFile"]),1000*2)}
+    if(this.user.roleNumber==200) 
+    setTimeout(()=> this.router.navigate(["/supervisor"]),1000*2);
+    if(this.user.roleNumber==500){
+      setTimeout(()=> this.router.navigate(["/admin"]),1000*2)}
     },error=>{
       console.log(error);
       console.log(this.apiService.token);
@@ -68,7 +89,7 @@ loginNow:boolean=false;
 
 
   sendImage(){
-    this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.intern},'/auth/ImageAuthentication').subscribe(data=>{
+    this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.user},'/auth/ImageAuthentication').subscribe(data=>{
       console.log(data);
       this.loginNow=true;
       this.router.navigate(["/pass"]);
@@ -81,7 +102,7 @@ loginNow:boolean=false;
   }
   
 
-  loginIntern(ID){
+  loginUser(ID){
     this.apiService.httpGet<LoginModel>(`/login/${ID}`).subscribe(data=>{ 
       console.log(data);
       this.userLogin._id=data._id;
@@ -95,7 +116,27 @@ loginNow:boolean=false;
   }
 
   
- 
+ getIntern(){
+  this.apiService.httpGet<any>('/api/supervisor/verify/getInterns').subscribe(data=>{
+    this.interns=data;
+    console.log(data);
+    
+  })
+ }
+
+ addIntern(){
+   this.apiService.httpPut<any,any>(this.intern,'/api/supervisor/verify/addInterns').subscribe(data=>{
+    console.log(data);
+    
+   })
+ }
+
+ getAllInternsAcademic(){
+  this.apiService.httpGet<any>('/api/supervisor/verify/getAllInternsAcademic').subscribe(data=>{
+    console.log(data);
+    
+  })
+ }
 
   
 }

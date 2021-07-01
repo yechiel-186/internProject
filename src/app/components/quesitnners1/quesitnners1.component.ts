@@ -14,13 +14,14 @@ export class Quesitnners1Component implements OnInit {
   citys:string[]=[""];
   
   constructor(private quesitnnersService:QuesitnnersService, private router:Router) {
-    
+    this.quesitnnersService.getQuesitnners();
     this.quesitnners=this.quesitnnersService.quesitnners;
     
    }
 
   ngOnInit(): void {
     this.getCountry()
+    
   }
 
   ​

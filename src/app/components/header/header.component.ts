@@ -8,12 +8,20 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  bool:boolean=true;
   
-  constructor(public service:LoginServiceService, private router:Router) { }
+  constructor(public service:LoginServiceService, private router:Router) {
+    
+    
+  } 
 
   ngOnInit(): void {
   }
   homepage(){
-this.router.navigate([""]);
+  this.router.navigate([""]);
   }
+  logout(){
+    location.replace("http://localhost:4200");
+  }
+  
 }

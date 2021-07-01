@@ -9,8 +9,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class TestFileComponent implements OnInit {
  t:string;
   constructor(private storage:AngularFireStorage) { 
-    
 
+    
   }
 
   ngOnInit(): void {

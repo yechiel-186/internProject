@@ -10,6 +10,7 @@ import { PassComponent } from './components/pass/pass.component';
 import { Quesitnners1Component } from './components/quesitnners1/quesitnners1.component';
 import { Quesitnners2Component } from './components/quesitnners2/quesitnners2.component';
 import { RegisterInternComponent } from './components/register-intern/register-intern.component';
+import { SupervisorComponent } from './components/supervisor/supervisor.component';
 import { TestFileComponent } from './components/test-file/test-file.component';
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:"quesitnners1",component:Quesitnners1Component},
   {path:"testFile",component:TestFileComponent},
   {path:"quesitnners2",component:Quesitnners2Component},
-  {path:"admin/:name/:ID/:password",component:AdminComponent}
+  {path:"admin/:name/:ID/:password",component:AdminComponent},
+  {path:"supervisor",component:SupervisorComponent}
 ];
 
 @NgModule({

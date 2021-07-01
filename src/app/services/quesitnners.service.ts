@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { quesitnnersModel } from '../interface/intern-model';
-import { ApiService } from './api.service';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,14 @@ export class QuesitnnersService {
   quesitnners:quesitnnersModel={};
   
   constructor(private apiService:ApiService, private http:HttpClient,private router:Router) {
-  
+  this.getAcademic()
+   }
+
+   getAcademic(){
+    this.apiService.httpGet<any>('/api/users/getAllAcademic').subscribe(data=>{
+      console.log(data);
+      
+    })
    }
 
    getQuesitnners(){

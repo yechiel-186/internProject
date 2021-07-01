@@ -1,10 +1,11 @@
-<app-header></app-header>
+
 <br>
 <br>
 <br>
 
 <div class="container">
-<h2 class="text-primary">HI {{loginService.intern.fullName}}! pleas type the mobile verification code you received</h2>
+<h2 class="text-primary" *ngIf="loginService.user.fullName">HI {{loginService.user.fullName}}! pleas type the mobile verification code you received</h2>
+<h2 class="text-primary" *ngIf="!loginService.user.fullName">HI guest! pleas type the mobile verification code you received</h2>
 </div>
 <div class="container">
 <br>

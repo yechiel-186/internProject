@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InternModel } from 'src/app/interface/intern-model';
+
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
    postUserLogin(ID:number){
      console.log(ID);
      
-     this.login.loginIntern(ID);
+     this.login.loginUser(ID);
    }
 
   ngOnInit(): void {

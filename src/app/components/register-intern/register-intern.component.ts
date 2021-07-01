@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InternModel } from 'src/app/interface/intern-model';
+import { userModel } from 'src/app/interface/intern-model';
 
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
@@ -10,12 +10,12 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 })
 export class RegisterInternComponent implements OnInit {
  
-intern:InternModel={ID:null, fullName:null, passport:null, phone:null};
+user:userModel={ID:null, fullName:null, passport:null, phone:null};
 bool:boolean=true;
 submitted = false;
 
 constructor(private loginService:LoginServiceService) {
-    loginService.intern=this.intern;
+    loginService.user=this.user;
  }
 
 ngOnInit(): void {

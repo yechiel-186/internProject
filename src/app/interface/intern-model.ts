@@ -1,10 +1,12 @@
-export interface InternModel extends TOKEN{
+export interface userModel extends TOKEN{
     ID:number;
     fullName:string;
     passport:string;
     phone:number;
     image?:string;
-    academic?:string
+    academic?:string;
+    role?:string;
+    roleNumber?:number
 
 }
 export interface LoginModel extends TOKEN{

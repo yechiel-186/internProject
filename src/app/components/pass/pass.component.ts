@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InternModel } from 'src/app/interface/intern-model';
+import { userModel } from 'src/app/interface/intern-model';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 import { QuesitnnersService } from 'src/app/services/quesitnners.service';
 
@@ -9,16 +9,14 @@ import { QuesitnnersService } from 'src/app/services/quesitnners.service';
   styleUrls: ['./pass.component.css']
 })
 export class PassComponent implements OnInit {
-  user:InternModel;
-  constructor(private loginService:LoginServiceService, private quesitnnersService:QuesitnnersService) {
-    this.user=loginService.intern;
+  
+  constructor(public loginService:LoginServiceService) {
+    console.log(loginService.user.role);
     
    }
   
 
-   getQuesitnners(){
-     this.quesitnnersService.getQuesitnners();
-   }
+   
   ngOnInit(): void {
   }
 

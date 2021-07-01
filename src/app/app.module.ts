@@ -24,6 +24,7 @@ import { TestFileComponent } from './components/test-file/test-file.component';
 import { GetAllUsersComponent } from './components/get-all-users/get-all-users.component';
 import { Quesitnners2Component } from './components/quesitnners2/quesitnners2.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { SupervisorComponent } from './components/supervisor/supervisor.component';
 
 
 
@@ -43,7 +44,8 @@ import { AdminComponent } from './components/admin/admin.component';
     TestFileComponent,
     GetAllUsersComponent,
     Quesitnners2Component,
-    AdminComponent
+    AdminComponent,
+    SupervisorComponent
    
   ],
   imports: [
