@@ -13,7 +13,7 @@ export class Quesitnners1Component implements OnInit {
   countrys:string[]=[""];
   citys:string[]=[""];
   
-  constructor(private quesitnnersService:QuesitnnersService, private router:Router) {
+  constructor(public quesitnnersService:QuesitnnersService, private router:Router) {
     this.quesitnnersService.getQuesitnners();
     this.quesitnners=this.quesitnnersService.quesitnners;
     

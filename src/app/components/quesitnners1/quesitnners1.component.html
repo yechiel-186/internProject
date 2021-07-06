@@ -21,7 +21,7 @@
             <option value="1">Jerusalem</option>
             <option value="2">New York</option>
             <option value="3">London</option>
-            </select>
+          </select>
         </div>
       </div>
       <br>
@@ -32,7 +32,10 @@
           </div>
           <div class="col-4">
             <label>academic institusion</label>
-            <input type="text" [(ngModel)]="quesitnners.academic" name="Graduation year" class="form-control" #Academic="ngModel">
+            <select type="text" [(ngModel)]="quesitnners.academic" name="academic" class="form-control" #academic="ngModel">
+              <option selected>academic</option>
+              <option *ngFor="let i of quesitnnersService.academicList">{{i}}</option>
+            </select>
           </div>
         </div>
          <div class="col-6; m-5">     

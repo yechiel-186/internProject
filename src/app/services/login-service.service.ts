@@ -3,20 +3,21 @@ import { Injectable } from '@angular/core';
 import {  Router } from '@angular/router';
 
 
-import { userModel, LoginModel } from '../interface/intern-model';
+import { userModel, LoginModel, testFile } from '../interface/intern-model';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
-user:userModel={ID:null, fullName:null, passport:null, phone:null,role:null,roleNumber:null};
+user:userModel={ID:null, fullName:null, passport:null, phone:null,role:null,roleNumber:null,image:null};
 userLogin:LoginModel={_id:"",code:""};
 interns:userModel[];
 intern:userModel;
 y:number=0;
 token:string="";
 loginNow:boolean=false;
+testFile:testFile={date:null,name:null,subject:null,url:null};
 
   constructor(public apiService:ApiService, private router:Router) {
     
@@ -59,6 +60,7 @@ loginNow:boolean=false;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
       console.log(data);
       this.loginNow=true;
+      this.user.image=data.user.image;
       this.user.ID=data.user.ID;
       this.user.academic=data.user.academic;
       this.user.fullName=data.user.fullName;
@@ -90,7 +92,8 @@ loginNow:boolean=false;
 
   sendImage(){
     this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.user},'/auth/ImageAuthentication').subscribe(data=>{
-      console.log(data);
+      console.log(this.user);
+
       this.loginNow=true;
       this.router.navigate(["/pass"]);
     },error=>{
@@ -99,6 +102,13 @@ loginNow:boolean=false;
       
     }
     )
+  }
+
+
+  updateFileTest(){
+    this.apiService.httpPut<any,any>({testFile:this.testFile},'/auth/updataTestFile').subscribe(data=>
+      console.log(data)
+      )
   }
   
 

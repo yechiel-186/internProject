@@ -15,12 +15,17 @@ export interface LoginModel extends TOKEN{
     phone?:number;
 }
 
+export interface academic {
+    _id:number,
+    fullName:string
+}
+
 export interface quesitnnersModel extends TOKEN{
     age?:Number;
     country?:string;
     city?:string;
     graduation?:number;
-    academic?:string;
+    academic?:academic;
     medical?:string;
     residency?:string;
     department?:string;
@@ -41,4 +46,11 @@ export interface adminModel extends TOKEN{
 export interface academicModel{
     ID:number;
     fullName:string;
+}
+
+export interface testFile{
+    date:Date;
+    name:string;
+    subject:string;
+    url:string;
 }

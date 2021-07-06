@@ -10,6 +10,7 @@ import { ApiService } from './api.service';
 })
 export class QuesitnnersService {
   quesitnners:quesitnnersModel={};
+  academicList:string[]=[];
   
   constructor(private apiService:ApiService, private http:HttpClient,private router:Router) {
   this.getAcademic()
@@ -18,6 +19,8 @@ export class QuesitnnersService {
    getAcademic(){
     this.apiService.httpGet<any>('/api/users/getAllAcademic').subscribe(data=>{
       console.log(data);
+      
+      this.academicList=data;
       
     })
    }
@@ -34,7 +37,6 @@ export class QuesitnnersService {
       this.quesitnners.department=data.department,
       this.quesitnners.yearResidency=data.yearResidency
       console.log("this is data",data);
-      console.log("quygu", this.quesitnners);
       
     },error=>{
       alert(error.message)
