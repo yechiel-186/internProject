@@ -49,8 +49,12 @@ export interface academicModel{
 }
 
 export interface testFile{
+    supervisor:string;
     date:Date;
-    name:string;
+    testName:string;
     subject:string;
     url:string;
+    score:number;
+    new:boolean;
+    intern:string;
 }

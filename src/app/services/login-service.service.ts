@@ -17,7 +17,7 @@ intern:userModel;
 y:number=0;
 token:string="";
 loginNow:boolean=false;
-testFile:testFile={date:null,name:null,subject:null,url:null};
+
 
   constructor(public apiService:ApiService, private router:Router) {
     
@@ -93,7 +93,6 @@ testFile:testFile={date:null,name:null,subject:null,url:null};
   sendImage(){
     this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.user},'/auth/ImageAuthentication').subscribe(data=>{
       console.log(this.user);
-
       this.loginNow=true;
       this.router.navigate(["/pass"]);
     },error=>{
@@ -102,13 +101,6 @@ testFile:testFile={date:null,name:null,subject:null,url:null};
       
     }
     )
-  }
-
-
-  updateFileTest(){
-    this.apiService.httpPut<any,any>({testFile:this.testFile},'/auth/updataTestFile').subscribe(data=>
-      console.log(data)
-      )
   }
   
 
