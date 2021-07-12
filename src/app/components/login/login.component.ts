@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
    }
 
    postUserLogin(ID:number){
-     console.log(ID);
      
      this.login.loginUser(ID);
    }

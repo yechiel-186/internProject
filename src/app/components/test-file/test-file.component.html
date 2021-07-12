@@ -5,6 +5,7 @@
         <th scope="col">SUBJECT</th>
         <th scope="col">SUPERVISOR</th>
         <th scope="col">DATE</th>
+        <th scope="col">SCORE</th>
       </tr>
     </thead>
     <tbody>
@@ -33,9 +34,12 @@
 
 
 
+<input type="file" (change)="add($event)">
+<input type="button" value="submit" (click)= "submit()">
 
-<!-- <input type="file" (change)="add($event)">
-<input type="button" value="download" (click)= "download()">
-<input type="button" value="submit" (click)="update()">
+<input type="button" value="getAllTests" (click)= "getAllTests()">
 
- -->
+<div *ngFor= "let i of fileService.urlArr">
+  
+ <a href="{{i}}">1</a> 
+</div>

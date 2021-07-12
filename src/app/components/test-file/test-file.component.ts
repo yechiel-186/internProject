@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { testFile } from 'src/app/interface/intern-model';
+
 import { FilesServiceService } from 'src/app/services/files-service.service';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
@@ -10,32 +10,39 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
   styleUrls: ['./test-file.component.css']
 })
 export class TestFileComponent implements OnInit {
-  testFile:testFile={supervisor:null,date:null,testName:null,subject:null,url:null,score:null,new:null,intern:null};
 
-  constructor(private storage:AngularFireStorage,private loginService:LoginServiceService, private fileService:FilesServiceService) { 
+
+  constructor(private storage:AngularFireStorage,private loginService:LoginServiceService, public fileService:FilesServiceService) { 
  
   }
 
   ngOnInit(): void {
   }
 
-addNewTest(){
-  this.fileService
-}
+
 
 
 add(event:any){
-   this.storage.upload(`testFile/${this.loginService.user.fullName.split(' ').join('')}/test.png`,event.target.files[0])
+   this.storage.upload(`testFile/${this.loginService.user.fullName.split(' ').join('')}/testAnswers.pdf`,event.target.files[0])
 }
 
-download(){  
-  this.storage.ref(`testFile/${this.loginService.user.fullName.split(' ').join('')}/test.png`).getDownloadURL().subscribe
-  (data=>(this.testFile.url=data))
+submit(){  
+  this.storage.ref(`testFile/${this.loginService.user.fullName.split(' ').join('')}/testAnswers.pdf`).getDownloadURL().subscribe
+  (data=>{this.fileService.testFile.url=data
+  this.fileService.testFile.answers=true;
+  this.fileService.testFile.questions=false;
+  this.fileService.testFile.subject="English";
+  this.fileService.postTestAnswers();
+})
 }
 
-update(){
-  this.fileService.testFile=this.testFile;
-  this.fileService.postTest();
+
+
+getAllTests(){
+  this.fileService.getAllTests();
+
 }
+
+
 
 }

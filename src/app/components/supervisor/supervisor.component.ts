@@ -23,4 +23,8 @@ export class SupervisorComponent implements OnInit {
   getAllInternsAcademic(){
     this.loginService.getAllInternsAcademic()
   }
+
+  createTest(){
+    
+  }
 }

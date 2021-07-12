@@ -50,11 +50,13 @@ export interface academicModel{
 
 export interface testFile{
     supervisor:string;
-    date:Date;
-    testName:string;
-    subject:string;
-    url:string;
-    score:number;
     new:boolean;
     intern:string;
+    testName:String;
+    subject:String;
+    url:String;
+    score:number;
+    questions:Boolean;
+    answers:Boolean;
+    date:Date;
 }

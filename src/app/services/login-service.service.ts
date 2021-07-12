@@ -45,6 +45,9 @@ loginNow:boolean=false;
     if(!userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/auth/checkCode').subscribe(data=>{
+      for(let i in data){
+        localStorage.setItem(i, JSON.stringify(data[i]));
+      }
     this.y=1;
     setTimeout(()=> this.router.navigate(["/image"]),1000*2)
     },error=>{
@@ -58,6 +61,9 @@ loginNow:boolean=false;
   if(userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
+      for(let i in data){
+        localStorage.setItem(i, JSON.stringify(data[i]));
+      }
       console.log(data);
       this.loginNow=true;
       this.user.image=data.user.image;
