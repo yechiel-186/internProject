@@ -30,13 +30,13 @@ academicsList:string[]=[]
   Admin(){
     this.api.httpPost<any,any>(this.admin,"/admin/createAdmin").subscribe(data=>{
       console.log(data) 
-      this.getAcademic()
+      // this.getAcademic()
     },error=>{
         console.log(error.error.message);  
       if(error.error.message=="you are registed"){
         this.api.httpPost<any,any>(this.admin,"/admin/loginAdmin").subscribe(data2=>{
           console.log(data2);
-          this.getAcademic()
+          // this.getAcademic()
         })
       }
     })
@@ -52,11 +52,14 @@ createSupervisor(){
 }
 
 createAcademic(){
+  console.log("uyguyg");
   this.api.httpPost(this.academic,"/admin/api/verify/createAcademic").subscribe(data=>{
-    
+    console.log("hfuygf");
+        
     console.log(data)}
     )
 }
+
 getAcademic(){
   this.api.httpGet<any>("/admin/api/verify/getAcademic").subscribe(data=>{
     if(data==[]){

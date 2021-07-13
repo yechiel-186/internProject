@@ -29,7 +29,7 @@ loginNow:boolean=false;
    
 
   postRegister(){
-    this.apiService.httpPost<userModel,any>(this.user,'/auth/checkUserNutExits').subscribe(data=>{ 
+    this.apiService.httpPost<userModel,any>(this.user,'/register/checkUserNutExits').subscribe(data=>{ 
       this.userLogin._id=data._id;
       console.log(this.userLogin);
       this.router.navigate(["/code"]);
@@ -44,10 +44,8 @@ loginNow:boolean=false;
   sendCode(code,userName){
     if(!userName){
     this.userLogin.code=code;
-    this.apiService.httpPost<LoginModel,any>(this.userLogin,'/auth/checkCode').subscribe(data=>{
-      for(let i in data){
-        localStorage.setItem(i, JSON.stringify(data[i]));
-      }
+    this.apiService.httpPost<LoginModel,any>(this.userLogin,'/reguster/checkCode').subscribe(data=>{
+      
     this.y=1;
     setTimeout(()=> this.router.navigate(["/image"]),1000*2)
     },error=>{
@@ -61,9 +59,7 @@ loginNow:boolean=false;
   if(userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
-      for(let i in data){
-        localStorage.setItem(i, JSON.stringify(data[i]));
-      }
+     
       console.log(data);
       this.loginNow=true;
       this.user.image=data.user.image;
@@ -97,7 +93,7 @@ loginNow:boolean=false;
 
 
   sendImage(){
-    this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.user},'/auth/ImageAuthentication').subscribe(data=>{
+    this.apiService.httpPost<any,any>({user:this.userLogin,intern:this.user},'/register/ImageAuthentication').subscribe(data=>{
       console.log(this.user);
       this.loginNow=true;
       this.router.navigate(["/pass"]);
