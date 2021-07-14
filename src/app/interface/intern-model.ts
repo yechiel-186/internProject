@@ -54,9 +54,8 @@ export interface testFile{
     intern:string;
     testName:String;
     subject:String;
-    url:String;
     score:number;
-    questions:Boolean;
-    answers:Boolean;
+    questionsUrl?:string;
+    answersUrl?:string;
     date:Date;
 }

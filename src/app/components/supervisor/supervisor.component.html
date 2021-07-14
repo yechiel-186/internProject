@@ -1,5 +1,16 @@
-<button (click)="getIntern()">get intern</button>
-<button (click)="addIntern()">add intern</button>
-<button (click)="getAllInternsAcademic()">getAllInternsAcademic</button>
+<form action="newTest">
+    <input type="text" value="subject" [(ngModel)]="testFile.subject" name="subject">
+    <input type="text" value="name" [(ngModel)]="testFile.testName" name="name">
+    <input type="file" (change)="add($event)">
+    <button (click)="createTest()">create test</button>
+    <button (click)="getAllInternsAcademic()">getAllInternsAcademic</button>
+</form>
 
-<button (click)="createTest()">create test</button>
+
+
+
+
+<!-- 
+    <button (click)="getIntern()">get intern</button>
+<button (click)="addIntern()">add intern</button>
+ -->

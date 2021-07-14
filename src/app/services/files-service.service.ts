@@ -6,7 +6,7 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class FilesServiceService {
-  testFile:testFile={supervisor:null,date:null,testName:null,subject:null,url:null,score:null,new:null,intern:null,questions:null,answers:null};
+  testFile:testFile={supervisor:null,date:null,testName:null,subject:null,score:null,new:null,intern:null,questionsUrl:null,answersUrl:null};
   urlArr:string[];
   nameArr:string[];
   constructor(private apiService:ApiService) {
@@ -30,6 +30,9 @@ export class FilesServiceService {
 
 
    createTest(){
-     this.apiService.httpPost<any,any>(this.testFile,'')
+     this.apiService.httpPost<any,any>(this.testFile,'/api/supervisor/verify/createTest').subscribe(
+       data=>{console.log(data);
+       }
+     )
    }
 }

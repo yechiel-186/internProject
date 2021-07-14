@@ -44,7 +44,7 @@ loginNow:boolean=false;
   sendCode(code,userName){
     if(!userName){
     this.userLogin.code=code;
-    this.apiService.httpPost<LoginModel,any>(this.userLogin,'/reguster/checkCode').subscribe(data=>{
+    this.apiService.httpPost<LoginModel,any>(this.userLogin,'/register/checkCode').subscribe(data=>{
       
     this.y=1;
     setTimeout(()=> this.router.navigate(["/image"]),1000*2)
@@ -59,7 +59,6 @@ loginNow:boolean=false;
   if(userName){
     this.userLogin.code=code;
     this.apiService.httpPost<LoginModel,any>(this.userLogin,'/login/checkCode').subscribe(data=>{
-     
       console.log(data);
       this.loginNow=true;
       this.user.image=data.user.image;
